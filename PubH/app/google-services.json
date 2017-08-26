@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "824854346903",
+    "firebase_url": "https://pubh-d1654.firebaseio.com",
+    "project_id": "pubh-d1654",
+    "storage_bucket": "pubh-d1654.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:824854346903:android:bef13dcb497ccbd5",
+        "android_client_info": {
+          "package_name": "mycompany.pubh"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "824854346903-vg7c4koriiossj7vsrn6qr1sqo44oqhq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mycompany.pubh",
+            "certificate_hash": "73c6833896b0b0d6ead8bc41c315d342e8096424"
+          }
+        },
+        {
+          "client_id": "824854346903-petbk5123m317eolp4t0vpsvqaq6vai4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDL8_VmNZIaWxSPrfmZ3TFYW7cmmAH_D_0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "824854346903-petbk5123m317eolp4t0vpsvqaq6vai4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

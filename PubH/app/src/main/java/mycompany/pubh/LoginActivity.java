@@ -35,25 +35,16 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.*;
+
 import static android.Manifest.permission.READ_CONTACTS;
 
 /**
  * A login screen that offers login via userName/password.
  */
 public class LoginActivity extends AppCompatActivity {
-
-    /**
-     * Id to identity READ_CONTACTS permission request.
-     */
-    private static final int REQUEST_READ_CONTACTS = 0;
-
-    /**
-     * A dummy authentication store containing known user names and passwords.
-     * TODO: remove after connecting to a real authentication system.
-     */
-    private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "foo:hello", "bar:world"
-    };
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
@@ -64,11 +55,18 @@ public class LoginActivity extends AppCompatActivity {
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    private FirebaseAuth auth;
+    private static String TAG;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        TAG = "Email Password";
+
+        auth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = auth.getCurrentUser();
+        /*updateUI(currentUser);*/
         // Set up the login form.
         mUsername = (AutoCompleteTextView) findViewById(R.id.usernameLogin);
 
@@ -85,17 +83,17 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         Button mUsernameSignin = (Button) findViewById(R.id.signin);
-        Button mregsiterButton = (Button) findViewById(R.id.registerButton);
+        Button mSignupButton = (Button) findViewById(R.id.signup);
         mUsernameSignin.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 attemptLogin();
             }
         });
-        mregsiterButton.setOnClickListener(new OnClickListener() {
+        mSignupButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                register();
+                Signup();
             }
         });
 
@@ -121,8 +119,8 @@ public class LoginActivity extends AppCompatActivity {
         mPasswordView.setError(null);
 
         // Store values at the time of the login attempt.
-        String userName = mUsername.getText().toString();
-        String password = mPasswordView.getText().toString();
+        final String userName = mUsername.getText().toString();
+        final String password = mPasswordView.getText().toString();
 
         boolean cancel = false;
         View focusView = null;
@@ -153,13 +151,30 @@ public class LoginActivity extends AppCompatActivity {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
-            mAuthTask = new UserLoginTask(userName, password);
-            mAuthTask.execute((Void) null);
+            auth.signInWithEmailAndPassword(userName, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                // Sign in success, update UI with the signed-in user's information
+                                Log.d(TAG, "signInWithEmail:success");
+                                FirebaseUser user = auth.getCurrentUser();
+                               updateUI(user);
+                            } else {
+                                // If sign in fails, display a message to the user.
+                                Log.w(TAG, "signInWithEmail:failure", task.getException());
+                                Toast.makeText(LoginActivity.this, "Authentication failed.",
+                                        Toast.LENGTH_SHORT).show();
+                                showProgress(false);
+                               /* updateUI(null);*/
+                            }}
+                    });
+            // [END sign_in_with_email]
         }
     }
     private boolean isUserValid(String userName) {
         //TODO: Replace this with your own logic
-        return userName.equals("foo");
+       return userName.contains("@");
     }
 
     private boolean isPasswordValid(String password) {
@@ -241,14 +256,6 @@ public class LoginActivity extends AppCompatActivity {
                 return false;
             }
 
-            for (String credential : DUMMY_CREDENTIALS) {
-                String[] pieces = credential.split(":");
-                if (pieces[0].equals(mUser)) {
-                    // Account exists, return true if the password matches.
-                    return pieces[1].equals(mPassword);
-                }
-            }
-
             // TODO: register the new account here.
             return true;
         }
@@ -274,14 +281,29 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-        protected void register(){
-            Intent registerNow = new Intent(LoginActivity.this, RegisterActivity.class);
-            startActivity(registerNow);
+        protected void Signup(){
+            Intent signup = new Intent(this,SignupActivity.class);
+            startActivity(signup);
+            finish();
         }
+
 
         protected void Dashboard(){
             Intent Dashboard = new Intent(LoginActivity.this, DashboardActivity.class);
             startActivity(Dashboard);
+            finish();
         }
+
+
+    private void updateUI(FirebaseUser user) {
+        showProgress(false);
+        if (user != null) {
+            Dashboard();
+        } else {
+            Intent Login = new Intent(LoginActivity.this, LoginActivity.class);
+            startActivity(Login);
+            finish();
+        }
+    }
 }
 
