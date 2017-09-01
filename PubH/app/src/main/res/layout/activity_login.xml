@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
-    android:background="@drawable/envi"
+    android:background="@drawable/educ"
     android:weightSum="1"
     tools:context="mycompany.pubh.LoginActivity"
     android:layout_weight="1"

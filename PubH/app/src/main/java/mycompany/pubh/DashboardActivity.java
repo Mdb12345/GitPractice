@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v4.app.FragmentActivity;
 
+@SuppressWarnings("ALL")
 public class DashboardActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     @Override
@@ -73,20 +74,23 @@ public class DashboardActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_lesson) {
+            LessonFragment frag = new LessonFragment();
+            support.beginTransaction().replace(R.id.some_frag,frag).commit();
         } else if (id == R.id.nav_simul) {
-            HelpFragment fragments = new HelpFragment();
-            support.beginTransaction().remove(fragments).commitAllowingStateLoss();
+            SimulFragment simulation = new SimulFragment();
+            support.beginTransaction().replace(R.id.some_frag,simulation).commit();
         } else if (id == R.id.nav_help) {
             HelpFragment fragments = new HelpFragment();
             support.beginTransaction().replace(R.id.some_frag,fragments).commit();
         } else if (id == R.id.nav_statistics) {
-            statisticsFragment fragments = new statisticsFragment();
-            support.beginTransaction().replace(R.id.some_frag,fragments).addToBackStack(null).commit();
+            statisticsFragment stat = new statisticsFragment();
+            support.beginTransaction().replace(R.id.some_frag,stat).commit();
         } else if (id == R.id.nav_logout) {
             Intent Login = new Intent(DashboardActivity.this,LoginActivity.class);
             startActivity(Login);
             finish();
         }
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

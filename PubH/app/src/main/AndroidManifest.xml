@@ -26,6 +26,8 @@
             android:label="@string/title_activity_dashboard"
             android:parentActivityName=".LoginActivity"
             android:theme="@style/AppTheme" />
-        <activity android:name=".SignupActivity"></activity>    </application>
+        <activity android:name=".SignupActivity" />
+        <activity android:name=".ChapterActivity"></activity>
+    </application>
 
 </manifest>
