@@ -1,0 +1,153 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="mycompany.pubh.LessonFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <Button
+            android:id="@+id/Chapter1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="Chapter 1"
+            />
+
+        <Button
+            android:id="@+id/Chapter2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="buttonOnClick"
+            android:text="Chapter 2" />
+
+        <Button
+            android:id="@+id/Chapter3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chapter 3" />
+
+        <Button
+            android:id="@+id/Chapter4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chapter 4" />
+
+        <Button
+            android:id="@+id/Chapter5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chapter 5" />
+
+        <Button
+            android:id="@+id/Chapter6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chapter 6" />
+
+        <Button
+            android:id="@+id/Chapter7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chapter 7" />
+
+        <Button
+            android:id="@+id/Chapter8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chapter 8" />
+
+        <Button
+            android:id="@+id/Chapter9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chapter 9" />
+
+        <Button
+            android:id="@+id/Chapter10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chapter 10" />
+
+        <Button
+            android:id="@+id/Chapter11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chapter 11" />
+
+        <Button
+            android:id="@+id/Chapter12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chapter 12" />
+
+        <Button
+            android:id="@+id/Chapter13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chapter 13" />
+
+        <Button
+            android:id="@+id/Chapter14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chapter 14" />
+
+        <Button
+            android:id="@+id/Chapter15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chapter 15" />
+
+        <Button
+            android:id="@+id/Chapter16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chapter 16" />
+
+        <Button
+            android:id="@+id/Chapter17"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chapter 17" />
+
+        <Button
+            android:id="@+id/Chapter18"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chapter 18" />
+
+        <Button
+            android:id="@+id/Chapter19"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chapter 19" />
+
+        <Button
+            android:id="@+id/Chapter20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chapter 20" />
+
+        <Button
+            android:id="@+id/Chapter21"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chapter 21" />
+
+        <Button
+            android:id="@+id/Chapter22"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chapter 22"
+            android:layout_marginBottom="10dp"/>
+    </LinearLayout>
+
+</FrameLayout>
